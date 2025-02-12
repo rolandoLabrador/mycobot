@@ -1,0 +1,41 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "../protos/Firefighter.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/tables/protos/Table.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.2994390551117274 -0.016928445572473343 0.953965240459156 3.249360377160344
+  position 1.1872152876339015 0.06835188047133317 1.5071732702318104
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorTileSize 0.25 0.25
+  wallHeight 0.05
+}
+Table {
+}
+Firefighter {
+  hidden position_0_0 3.9447720451109983e-07
+  hidden rotation_1 0 0 0.9999999999999999 3.94247667650073e-07
+  hidden position_1_0 -3.915221222783316e-07
+  hidden rotation_2 0.5773514518245925 0.5773496778717534 -0.5773496778707146 2.094399226045156
+  hidden position_2_0 -1.3811970826411146e-07
+  hidden rotation_3 0 0 -1 1.3657139822709086e-07
+  hidden position_3_0 -9.372301848839733e-09
+  hidden rotation_4 0 0 -1 1.5708000093723018
+  hidden position_4_0 1.516729148381559e-08
+  hidden rotation_5 0.5773495966847666 -0.5773496054415967 0.5773516054401941 2.0943990087568647
+  hidden position_5_0 1.0436697889615406e-09
+  hidden rotation_6 -1 5.218350650130965e-10 5.218328071446851e-10 1.5708
+  translation 0 0 0.74
+  selfCollision TRUE
+}

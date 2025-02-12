@@ -1,0 +1,494 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/tables/protos/Table.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.29717600785039894 0.45263798004262557 0.8407171220934134 1.326017285855486
+  position -1.8763380454312153 -3.6270138200502955 4.424967090534055
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Solid {
+  translation -0.0599997 -0.0600006 0.74
+  rotation 0 0 1 -1.57079
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "../../contract1/page1_1.png"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.21 0.297 0.001
+      }
+    }
+  ]
+  name "pdf"
+}
+Robot {
+  translation -0.35 0 0.77
+  children [
+    Pose {
+      translation 0 0 -0.03
+      rotation 0 0 1 1.5708
+      children [
+        DEF G_base_visual CadShape {
+          url [
+            "../mycobot_description/urdf/mycobot_280_pi/G_base.dae"
+          ]
+        }
+      ]
+    }
+    Solid {
+      translation -4.440333878363845e-09 4.6538280497939594e-08 -4.07410288905119e-05
+      rotation 0.9956366408286761 0.09331494756329378 -8.05991600250621e-07 1.3257855745433384e-06
+      children [
+        DEF joint1_pi_visual CadShape {
+          url [
+            "../mycobot_description/urdf/mycobot_280_pi/joint1_pi.dae"
+          ]
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position 4.003414681768444e-07
+            axis 0 0 1
+            anchor 0 0 0.13956
+          }
+          device [
+            RotationalMotor {
+              name "joint2_to_joint1"
+              minPosition -2.9322
+              maxPosition 2.9322
+              maxTorque 1000
+            }
+            PositionSensor {
+              name "joint2_to_joint1_sensor"
+            }
+          ]
+          endPoint Solid {
+            translation 0 0 0.13956
+            rotation 0 0 1 3.99840112477504e-07
+            children [
+              Pose {
+                translation 0 0 -0.06096
+                rotation 0 0 -1 1.5708
+                children [
+                  DEF joint2_visual CadShape {
+                    url [
+                      "../mycobot_description/urdf/mycobot_280_pi/joint2.dae"
+                    ]
+                  }
+                ]
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -3.7390194873652395e-07
+                  axis -4e-06 -1 -4e-06
+                  anchor 0 0 -0.001
+                }
+                device [
+                  RotationalMotor {
+                    name "joint3_to_joint2"
+                    minPosition -2.3562
+                    maxPosition 2.3562
+                    maxTorque 1000
+                  }
+                  PositionSensor {
+                    name "joint3_to_joint2_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0 0 -0.001
+                  rotation 0.5773514586065881 0.5773496744807217 -0.5773496744797298 2.094399215872154
+                  children [
+                    Pose {
+                      translation 0 0 0.03256
+                      rotation 0 -1 0 1.5708
+                      children [
+                        DEF joint3_visual CadShape {
+                          url [
+                            "../mycobot_description/urdf/mycobot_280_pi/joint3.dae"
+                          ]
+                        }
+                      ]
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        position -1.643588066015741e-07
+                        axis 0 0 1
+                        anchor -0.1104 0 0
+                      }
+                      device [
+                        RotationalMotor {
+                          name "joint4_to_joint3"
+                          minPosition -2.618
+                          maxPosition 2.618
+                          maxTorque 1000
+                        }
+                        PositionSensor {
+                          name "joint4_to_joint3_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation -0.1104 0 0
+                        rotation 0 0 -0.9999999999999999 1.632340423778195e-07
+                        children [
+                          Pose {
+                            translation 0 0 0.03056
+                            rotation 0 -1 0 1.5708
+                            children [
+                              DEF joint4_visual CadShape {
+                                url [
+                                  "../mycobot_description/urdf/mycobot_280_pi/joint4.dae"
+                                ]
+                              }
+                            ]
+                          }
+                          HingeJoint {
+                            jointParameters HingeJointParameters {
+                              position -8.177285141220586e-08
+                              axis 0 0 1
+                              anchor -0.096 0 0.06462
+                            }
+                            device [
+                              RotationalMotor {
+                                name "joint5_to_joint4"
+                                minPosition -2.5307
+                                maxPosition 2.5307
+                                maxTorque 1000
+                              }
+                              PositionSensor {
+                                name "joint5_to_joint4_sensor"
+                              }
+                            ]
+                            endPoint Solid {
+                              translation -0.096 0 0.06462
+                              rotation 0 0 -1 1.5708000817728514
+                              children [
+                                Pose {
+                                  translation 0 0 -0.03356
+                                  rotation 0.5773516025212714 -0.5773496025226483 0.5773496025226483 2.094399
+                                  children [
+                                    DEF joint5_visual CadShape {
+                                      url [
+                                        "../mycobot_description/urdf/mycobot_280_pi/joint5.dae"
+                                      ]
+                                    }
+                                  ]
+                                }
+                                HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    position 4.4571084467852894e-08
+                                    axis 4e-06 -1 0
+                                    anchor 0 -0.07318 0
+                                  }
+                                  device [
+                                    RotationalMotor {
+                                      name "joint6_to_joint5"
+                                      minPosition -2.8798
+                                      maxPosition 2.8798
+                                      maxTorque 1000
+                                    }
+                                    PositionSensor {
+                                      name "joint6_to_joint5_sensor"
+                                    }
+                                  ]
+                                  endPoint Solid {
+                                    translation 0 -0.07318 0
+                                    rotation 0.5773495709630749 -0.5773496183024804 0.5773516183009566 2.0943990473395617
+                                    children [
+                                      Pose {
+                                        translation 0 0 -0.038
+                                        children [
+                                          DEF joint6_visual CadShape {
+                                            url [
+                                              "../mycobot_description/urdf/mycobot_280_pi/joint6.dae"
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                      HingeJoint {
+                                        jointParameters HingeJointParameters {
+                                          position 7.048244070443403e-08
+                                          axis 0 1 -4e-06
+                                          anchor 0 0.0456 0
+                                        }
+                                        device [
+                                          RotationalMotor {
+                                            name "joint6output_to_joint6"
+                                            minPosition -3.14159
+                                            maxPosition 3.14159
+                                            maxTorque 1000
+                                          }
+                                          PositionSensor {
+                                            name "joint6output_to_joint6_sensor"
+                                          }
+                                        ]
+                                        endPoint Solid {
+                                          translation 0 0.0456 0
+                                          rotation -0.9999999999999987 3.524123186882377e-08 3.524107938757144e-08 1.5708000000000013
+                                          children [
+                                            Pose {
+                                              translation 0 0 -0.012
+                                              children [
+                                                DEF joint7_visual CadShape {
+                                                  url [
+                                                    "../mycobot_description/urdf/mycobot_280_pi/joint7.dae"
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                            Solid {
+                                              translation 0 0 0.01
+                                              rotation 1 0 0 1.579
+                                              children [
+                                                Camera {
+                                                  translation 0.041 0.008 -0.001
+                                                  rotation 0 0 1 1.57079
+                                                  width 1280
+                                                  height 720
+                                                }
+                                                Pose {
+                                                  translation 0.024 -0.008 0
+                                                  rotation 0 1 0 3.14159
+                                                  children [
+                                                    DEF camera_flange_visual CadShape {
+                                                      url [
+                                                        "../mycobot_description/urdf/mycobot_280_pi/camera_flange.dae"
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                                Solid {
+                                                  translation 0 0 0.01
+                                                  rotation -1 0 0 1.579
+                                                  children [
+                                                    VacuumGripper {
+                                                      translation 0 0.008 0.097
+                                                    }
+                                                    Pose {
+                                                      translation 0 0.008 0.009
+                                                      rotation 1 0 0 1.5708
+                                                      children [
+                                                        DEF pump_head_visual CadShape {
+                                                          url [
+                                                            "../mycobot_description/urdf/mycobot_280_pi/pump_head.dae"
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                  name "pump_head"
+                                                  boundingObject Pose {
+                                                    translation 0 0.008 0.009
+                                                    rotation 1 0 0 1.5708
+                                                    children [
+                                                      DEF pump_head Mesh {
+                                                        url [
+                                                          "../mycobot_description/urdf/mycobot_280_pi/pump_head.dae"
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                  physics Physics {
+                                                  }
+                                                }
+                                              ]
+                                              name "camera_flange"
+                                              boundingObject Pose {
+                                                translation 0.024 -0.008 0
+                                                rotation 0 1 0 3.14159
+                                                children [
+                                                  DEF camera_flange Mesh {
+                                                    url [
+                                                      "../mycobot_description/urdf/mycobot_280_pi/camera_flange.dae"
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                              physics Physics {
+                                              }
+                                            }
+                                          ]
+                                          name "joint6_flange"
+                                          boundingObject Pose {
+                                            translation 0 0 -0.012
+                                            children [
+                                              DEF joint7 Mesh {
+                                                url [
+                                                  "../mycobot_description/urdf/mycobot_280_pi/joint7.dae"
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                          physics Physics {
+                                          }
+                                          linearVelocity 1.877783216640752e-06 2.864475744114255e-07 -7.454058071628227e-07
+                                          angularVelocity -5.4937461392940585e-08 6.368433895573665e-06 4.7196926383359245e-06
+                                        }
+                                      }
+                                    ]
+                                    name "joint6"
+                                    boundingObject Pose {
+                                      translation 0 0 -0.038
+                                      children [
+                                        DEF joint6 Mesh {
+                                          url [
+                                            "../mycobot_description/urdf/mycobot_280_pi/joint6.dae"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                    physics Physics {
+                                    }
+                                    linearVelocity 1.7910393983206266e-06 1.9742228056353723e-08 -3.8125952216629393e-07
+                                    angularVelocity 1.1148741129234228e-08 6.36836130114771e-06 4.719692990248664e-06
+                                  }
+                                }
+                              ]
+                              name "joint5"
+                              boundingObject Pose {
+                                translation 0 0 -0.03356
+                                rotation 0.5773516025212714 -0.5773496025226483 0.5773496025226483 2.094399
+                                children [
+                                  DEF joint5 Mesh {
+                                    url [
+                                      "../mycobot_description/urdf/mycobot_280_pi/joint5.dae"
+                                    ]
+                                  }
+                                ]
+                              }
+                              physics Physics {
+                              }
+                              linearVelocity 1.3736310915436451e-06 -2.6900624512373705e-09 -3.343521534303793e-07
+                              angularVelocity 1.11134511043162e-08 6.3680272297023405e-06 4.275648778375562e-06
+                            }
+                          }
+                        ]
+                        name "joint4"
+                        boundingObject Pose {
+                          translation 0 0 0.03056
+                          rotation 0 -1 0 1.5708
+                          children [
+                            DEF joint4 Mesh {
+                              url [
+                                "../mycobot_description/urdf/mycobot_280_pi/joint4.dae"
+                              ]
+                            }
+                          ]
+                        }
+                        physics Physics {
+                        }
+                        linearVelocity 7.921513854878539e-07 -1.975945243765192e-09 -3.1534889457787434e-07
+                        angularVelocity 1.1108194607120323e-08 6.368037507364427e-06 4.275649737727649e-06
+                      }
+                    }
+                  ]
+                  name "joint3"
+                  boundingObject Pose {
+                    translation 0 0 0.03256
+                    rotation 0 -1 0 1.5708
+                    children [
+                      DEF joint3 Mesh {
+                        url [
+                          "../mycobot_description/urdf/mycobot_280_pi/joint3.dae"
+                        ]
+                      }
+                    ]
+                  }
+                  physics Physics {
+                  }
+                  linearVelocity 4.905106349391893e-07 -9.095590992319025e-10 -2.7338699513292223e-07
+                  angularVelocity 9.821208552597713e-09 4.410412060270625e-06 4.275650901984281e-06
+                }
+              }
+            ]
+            name "joint2"
+            boundingObject Pose {
+              translation 0 0 -0.06096
+              rotation 0 0 -1 1.5708
+              children [
+                DEF joint2 Mesh {
+                  url [
+                    "../mycobot_description/urdf/mycobot_280_pi/joint2.dae"
+                  ]
+                }
+              ]
+            }
+            physics Physics {
+            }
+            linearVelocity 2.1144359681717268e-08 -2.426174725495991e-10 -1.986261556295574e-07
+            angularVelocity 6.6537589684812825e-09 4.6344325895542996e-10 4.275644572655098e-06
+          }
+        }
+      ]
+      name "joint1"
+      boundingObject DEF joint1_pi Mesh {
+        url [
+          "../mycobot_description/urdf/mycobot_280_pi/joint1_pi.dae"
+        ]
+      }
+      physics Physics {
+      }
+      linearVelocity -3.582945028477416e-10 -8.615761311095273e-12 -1.0499701735198698e-07
+      angularVelocity 3.404733908856423e-09 2.0665359259737636e-10 -1.9569642848005237e-11
+    }
+    Solid {
+      translation 0 0 -1.565359465049987e-06
+      children [
+        Pose {
+          translation 0 -0.15 0
+          rotation 1.0000003976552372e-06 0.7071052811840065 -0.7071082811851994 3.141591
+          children [
+            DEF pump_box_visual CadShape {
+              url [
+                "../mycobot_description/urdf/mycobot_280_pi/pump_box.dae"
+              ]
+            }
+          ]
+        }
+      ]
+      name "pump_box"
+      boundingObject Pose {
+        translation 0 0 -0.03
+        rotation 0 0 1 1.5708
+        children [
+          DEF pump_box Mesh {
+            url [
+              "../mycobot_description/urdf/mycobot_280_pi/pump_box.dae"
+            ]
+          }
+        ]
+      }
+      physics Physics {
+      }
+      linearVelocity 0 0 -4.041074842989455e-09
+    }
+  ]
+  name "mycobot_280_pi_with_camera_flange_pump"
+  boundingObject Pose {
+    translation 0 0 -0.03
+    rotation 0 0 1 1.5708
+    children [
+      DEF G_base Mesh {
+        url [
+          "../mycobot_description/urdf/mycobot_280_pi/G_base.dae"
+        ]
+      }
+    ]
+  }
+  controller "my_controller"
+}
+Table {
+}

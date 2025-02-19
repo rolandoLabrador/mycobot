@@ -91,19 +91,20 @@ def detect_pdf(image):
 
 if __name__ == "__main__":
     try:
-        cam = cv2.VideoCapture(0,cv2.CAP_MSMF)
+        cam = cv2.VideoCapture(1,cv2.CAP_MSMF)
         cam.set(cv2.CAP_PROP_FRAME_WIDTH, 1920) 
         while True:
             ret, image = cam.read()
             cv2.imshow("real image", image)
-            image,frame_image, is_object, is_pdf, is_contract = detect_pdf(image)
-            if is_contract:
-                print("Contract detected")
-                cropped = image[:, int(image.shape[1]*1/3):]
-                cv2.imwrite("image.jpg", cropped)
-                break
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+            if cv2.waitKey(1) & 0xFF == ord('f'):
+                image,frame_image, is_object, is_pdf, is_contract = detect_pdf(image)
+                if is_contract:
+                    print("Contract detected")
+                    cropped = image[:, int(image.shape[1]*1/3):]
+                    cv2.imwrite("image.jpg", cropped)
+                else:
+                    print(is_pdf,is_object,is_contract)
+                    print("No contract detected")
     except Exception as e:
         print(f"An error occurred during pump operation: {e}")
     finally:

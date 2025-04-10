@@ -109,6 +109,8 @@ async def main():
     is_object = False
     is_contract = False
     scan_count = 0
+    robot.set_basic_output(2, 0)  # Set pin 2 (G2) to HIGH
+
 
     
     robot.sync_send_angles([-45, 30, -90, -0, 0, 0], 80)

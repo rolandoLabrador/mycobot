@@ -34,23 +34,54 @@ def read_json_file(file_path):
 base_pick_up = [240.0, -12.9, 91.9, 178.64, -0.67, -50.69]
 base_approve = [48.7, -289.2, 91.9, -171.62, -7.79, -129.16]
 base_rejected = [33.9, 283.7, 89.5, 176.81, -2.44, 35.89]
+# async def pump_on():
+#     try:
+#         with SerialControl(SERIAL_PORT, BAUD_RATE, timeout=ACK_TIMEOUT) as controller:
+#             if not controller.ser:
+#                 print("Could not establish serial connection. Exiting.")
+#                 return 
+
+#             # --- Test OPEN command ---
+#             ack = controller.open_pump()
+#             if ack: # Check if ack is not None
+#                 # Proceed if open was successful
+#                 print(f"Device reported: {ack}")
+#             else:
+#                 print("Open command failed, cannot proceed.")
+
+#         print("\nExited 'with' block, connection automatically closed.")
+
+#     except Exception as e:
+#         # Catch potential errors during __init_s
+#         print(f"\nAn error occurred: {e}")
+
+# Stop suction pump
+# async def pump_off( ):
+#     try:
+#         with SerialControl(SERIAL_PORT, BAUD_RATE, timeout=ACK_TIMEOUT) as controller:
+#             if not controller.ser:
+#                 print("Could not establish serial connection. Exiting.")
+#                 return 
+
+#             # --- Test OPEN command ---
+#             ack = controller.close_pump()
+#             if ack: # Check if ack is not None
+#                 # Proceed if open was successful
+#                 print(f"Device reported: {ack}")
+#             else:
+#                 print("Open command failed, cannot proceed.")
+
+#         print("\nExited 'with' block, connection automatically closed.")
+
+#     except Exception as e:
+#             # Catch potential errors during __init__ or outside command calls
+#             print(f"\nAn error occurred: {e}")
 async def pump_on():
     try:
-        with SerialControl(SERIAL_PORT, BAUD_RATE, timeout=ACK_TIMEOUT) as controller:
-            if not controller.ser:
-                print("Could not establish serial connection. Exiting.")
-                return 
-
-            # --- Test OPEN command ---
-            ack = controller.open_pump()
-            if ack: # Check if ack is not None
-                # Proceed if open was successful
-                print(f"Device reported: {ack}")
-            else:
-                print("Open command failed, cannot proceed.")
-
-        print("\nExited 'with' block, connection automatically closed.")
-
+        # Set pin 5 (G5) to LOW to turn on the suction pump
+        robot.set_basic_output(2, 0)
+        await asyncio.sleep(0.05)  # Wait for the pump to turn on
+        print("Suction pump turned on.")
     except Exception as e:
         # Catch potential errors during __init_s
         print(f"\nAn error occurred: {e}")
@@ -58,49 +89,18 @@ async def pump_on():
 # Stop suction pump
 async def pump_off( ):
     try:
-        with SerialControl(SERIAL_PORT, BAUD_RATE, timeout=ACK_TIMEOUT) as controller:
-            if not controller.ser:
-                print("Could not establish serial connection. Exiting.")
-                return 
-
-            # --- Test OPEN command ---
-            ack = controller.close_pump()
-            if ack: # Check if ack is not None
-                # Proceed if open was successful
-                print(f"Device reported: {ack}")
-            else:
-                print("Open command failed, cannot proceed.")
-
-        print("\nExited 'with' block, connection automatically closed.")
-
+        # Set pin 5 (G5) to HIGH to turn off the suction pump
+        robot.set_basic_output(2, 1)
+        await asyncio.sleep(0.05)  # Wait for the pump to start turning off
+        # Set pin 2 (G2) to LOW and then HIGH to ensure the pump is fully off
+        robot.set_basic_output(5, 0)
+        await asyncio.sleep(1)  # Wait for the pump to fully turn off
+        robot.set_basic_output(5, 1)
+        await asyncio.sleep(0.05)  # Wait for the pump to be fully off
+        print("Suction pump turned off.")
     except Exception as e:
             # Catch potential errors during __init__ or outside command calls
             print(f"\nAn error occurred: {e}")
-# async def pump_on():
-#     try:
-#         # Set pin 5 (G5) to LOW to turn on the suction pump
-#         robot.set_basic_output(5, 0)
-#         await asyncio.sleep(0.05)  # Wait for the pump to turn on
-#         print("Suction pump turned on.")
-#     except Exception as e:
-#         # Catch potential errors during __init_s
-#         print(f"\nAn error occurred: {e}")
-
-# # Stop suction pump
-# async def pump_off( ):
-#     try:
-#         # Set pin 5 (G5) to HIGH to turn off the suction pump
-#         robot.set_basic_output(5, 1)
-#         await asyncio.sleep(0.05)  # Wait for the pump to start turning off
-#         # Set pin 2 (G2) to LOW and then HIGH to ensure the pump is fully off
-#         robot.set_basic_output(2, 0)
-#         await asyncio.sleep(1)  # Wait for the pump to fully turn off
-#         robot.set_basic_output(2, 1)
-#         await asyncio.sleep(0.05)  # Wait for the pump to be fully off
-#         print("Suction pump turned off.")
-#     except Exception as e:
-#             # Catch potential errors during __init__ or outside command calls
-#             print(f"\nAn error occurred: {e}")
 
 
 async def setOptions(robot: MyCobot280):
